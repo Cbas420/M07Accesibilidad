@@ -16,8 +16,7 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:background="@color/gray"
-        android:layout_marginTop="40dp"
-        />
+        android:layout_marginTop="40dp" />
 
     <GridView
         android:id="@+id/gridView"
@@ -29,33 +28,4 @@
         android:numColumns="2"
         android:stretchMode="columnWidth"
         android:verticalSpacing="16dp" />
-
-
-    <LinearLayout
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:padding="8dp"
-        android:weightSum="2">
-
-        <Button
-            android:id="@+id/storeButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tienda"
-            android:backgroundTint="@color/orange" />
-
-        <Button
-            android:id="@+id/cartButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Carrito"
-            android:backgroundTint="@color/gray" />
-    </LinearLayout>
-
 </RelativeLayout>
