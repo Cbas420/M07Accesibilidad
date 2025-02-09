@@ -19,4 +19,33 @@
         android:layout_marginTop="40dp" />
 
     <!-- Aquí puedes añadir más elementos para mostrar los productos en el carrito -->
+
+    <Button
+        android:id="@+id/btnPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pagar"
+        android:backgroundTint="@color/blue"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true" />
+
+    <ProgressBar
+        android:id="@+id/progressValidation"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:progressTint="@color/gray"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/txtPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pago realizado"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

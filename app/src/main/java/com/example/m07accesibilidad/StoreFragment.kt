@@ -15,7 +15,7 @@ class StoreFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-                             ): View? {
+    ): View? {
         // Inflar el layout del fragmento
         val view = inflater.inflate(R.layout.fragment_store, container, false)
 
@@ -27,7 +27,7 @@ class StoreFragment : Fragment() {
             Product(R.drawable.producto1, "Manzana", "$25.00"),
             Product(R.drawable.producto2, "Pera", "$30.00"),
             Product(R.drawable.producto3, "Zanahoria", "$35.00")
-                                )
+        )
 
         // Configurar el GridView y el adapter
         val gridView = view.findViewById<GridView>(R.id.gridView)

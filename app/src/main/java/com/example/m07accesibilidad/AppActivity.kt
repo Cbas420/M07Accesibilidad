@@ -35,8 +35,8 @@ class AppActivity : AppCompatActivity() {
                 .replace(R.id.fragmentContainer, CartFragment())
                 .addToBackStack(null)  // Agrega al back stack
                 .commit()
-            storeButton.setBackgroundColor(ContextCompat.getColor(this, R.color.orange))
-            cartButton.setBackgroundColor(ContextCompat.getColor(this, R.color.gray))
+            storeButton.setBackgroundColor(ContextCompat.getColor(this, R.color.gray))
+            cartButton.setBackgroundColor(ContextCompat.getColor(this, R.color.orange))
         }
 
 

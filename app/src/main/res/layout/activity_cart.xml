@@ -5,46 +5,4 @@
     android:padding="16dp"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:text="CARRITO"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:background="@color/gray"
-        android:layout_marginTop="40dp" />
-
-    <!-- Aquí puedes añadir más elementos para mostrar los productos en el carrito -->
-
-    <!-- Barra de navegación -->
-    <LinearLayout
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:padding="8dp"
-        android:weightSum="2">
-
-        <Button
-            android:id="@+id/storeButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tienda"
-            android:backgroundTint="@color/gray" />
-
-        <Button
-            android:id="@+id/cartButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Carrito"
-            android:backgroundTint="@color/orange" />
-    </LinearLayout>
 </RelativeLayout>
