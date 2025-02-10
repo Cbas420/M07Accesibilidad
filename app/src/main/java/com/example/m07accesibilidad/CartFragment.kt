@@ -2,6 +2,7 @@ package com.example.m07accesibilidad
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -20,6 +21,8 @@ private const val ARG_PARAM2 = "param2"
 
 class CartFragment : Fragment() {
 
+    private lateinit var pay: MediaPlayer
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +33,8 @@ class CartFragment : Fragment() {
         val btnPay = view.findViewById<Button>(R.id.btnPay)
         val txtPay = view.findViewById<TextView>(R.id.txtPay)
 
+        pay = MediaPlayer.create(requireActivity(), R.raw.pay)
+
         btnPay.setOnClickListener {
             progressValidation.visibility = VISIBLE
             btnPay.visibility = GONE
@@ -38,6 +43,7 @@ class CartFragment : Fragment() {
                 progressValidation.visibility = GONE
                 progressValidation.progressTintList = ColorStateList.valueOf(Color.GREEN)
                 txtPay.visibility = VISIBLE
+                pay.start()
             }, 2000)
         }
 

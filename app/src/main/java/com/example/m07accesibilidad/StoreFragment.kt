@@ -1,5 +1,6 @@
 package com.example.m07accesibilidad
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,12 +14,16 @@ private const val ARG_PARAM2 = "param2"
 
 class StoreFragment : Fragment() {
 
+    private lateinit var add: MediaPlayer
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflar el layout del fragmento
         val view = inflater.inflate(R.layout.fragment_store, container, false)
+
+        add = MediaPlayer.create(requireActivity(), R.raw.add)
 
         // Crear la lista de productos
         val productList = listOf(
@@ -42,14 +47,8 @@ class StoreFragment : Fragment() {
         return view
     }
 
-    fun onItemDoubleClick(position: Int) {
-    }
-
-    fun onItemClick(position: Int) {
-        Toast.makeText(requireContext(), "Item $position clicked", Toast.LENGTH_SHORT).show()
-    }
-
-    fun onItemLongClick(position: Int) {
-        Toast.makeText(requireContext(), "Item $position long clicked", Toast.LENGTH_SHORT).show()
+    fun onItemClick(product: Product) {
+        add.start()
+        Toast.makeText(context, "Clic en: ${product.name}", Toast.LENGTH_SHORT).show()
     }
 }

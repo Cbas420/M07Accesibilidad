@@ -11,11 +11,8 @@ import android.widget.TextView
 class ProductsAdapter(
     private val context: Context,
     private val productList: List<Product>,
-    private val itemClickListener: StoreFragment
+    private val onItemClickListener: StoreFragment // Se agrega el listener
                      ) : BaseAdapter() {
-
-    private val doubleClickThreshold: Long = 300 // Tiempo máximo entre clicks para considerarlos "dobles clicks"
-    private var lastClickTime: Long = 0 // Para almacenar el último click
 
     override fun getCount(): Int {
         return productList.size
@@ -47,23 +44,9 @@ class ProductsAdapter(
         viewHolder.productNameTextView.text = product.name
         viewHolder.productPriceTextView.text = product.price
 
-        // Manejo de click
+        // Configurar el clic del ítem
         view.setOnClickListener {
-            val currentClickTime = System.currentTimeMillis()
-            if (currentClickTime - lastClickTime < doubleClickThreshold) {
-                // Detectamos un doble click
-                itemClickListener.onItemDoubleClick(position)
-            } else {
-                // Es un click normal
-                itemClickListener.onItemClick(position)
-            }
-            lastClickTime = currentClickTime
-        }
-
-        // Manejo de long click
-        view.setOnLongClickListener {
-            itemClickListener.onItemLongClick(position)
-            true // Retornamos true para indicar que el long click fue consumido
+            onItemClickListener.onItemClick(product)
         }
 
         return view
@@ -75,10 +58,8 @@ class ProductsAdapter(
         val productPriceTextView: TextView = view.findViewById(R.id.productPriceTextView)
     }
 
-    // Interfaz para los eventos de click
-    interface ItemClickListener {
-        fun onItemClick(position: Int)
-        fun onItemDoubleClick(position: Int)
-        fun onItemLongClick(position: Int)
+    // Interfaz para manejar el clic
+    interface OnItemClickListener {
+        fun onItemClick(product: Product)
     }
 }
