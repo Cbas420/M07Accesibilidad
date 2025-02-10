@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
+import android.widget.Toast
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -26,14 +27,29 @@ class StoreFragment : Fragment() {
             Product(R.drawable.producto3, "Zanahoria", "$20.00"),
             Product(R.drawable.producto1, "Manzana", "$25.00"),
             Product(R.drawable.producto2, "Pera", "$30.00"),
+            Product(R.drawable.producto3, "Zanahoria", "$35.00"),
+            Product(R.drawable.producto3, "Zanahoria", "$35.00"),
+            Product(R.drawable.producto3, "Zanahoria", "$35.00"),
+            Product(R.drawable.producto3, "Zanahoria", "$35.00"),
             Product(R.drawable.producto3, "Zanahoria", "$35.00")
         )
 
         // Configurar el GridView y el adapter
         val gridView = view.findViewById<GridView>(R.id.gridView)
-        val adapter = ProductAdapter(requireContext(), productList)
+        val adapter = ProductsAdapter(requireContext(), productList, this)
         gridView.adapter = adapter
 
         return view
+    }
+
+    fun onItemDoubleClick(position: Int) {
+    }
+
+    fun onItemClick(position: Int) {
+        Toast.makeText(requireContext(), "Item $position clicked", Toast.LENGTH_SHORT).show()
+    }
+
+    fun onItemLongClick(position: Int) {
+        Toast.makeText(requireContext(), "Item $position long clicked", Toast.LENGTH_SHORT).show()
     }
 }
