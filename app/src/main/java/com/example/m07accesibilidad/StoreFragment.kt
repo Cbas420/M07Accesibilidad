@@ -8,24 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
 import android.widget.Toast
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import androidx.fragment.app.activityViewModels
 
 class StoreFragment : Fragment() {
 
+    private val cartViewModel: CartViewModel by activityViewModels() // Compartir ViewModel
     private lateinit var add: MediaPlayer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflar el layout del fragmento
+                             ): View? {
         val view = inflater.inflate(R.layout.fragment_store, container, false)
 
         add = MediaPlayer.create(requireActivity(), R.raw.add)
 
-        // Crear la lista de productos
         val productList = listOf(
             Product(R.drawable.producto1, "Manzana", "$10.00"),
             Product(R.drawable.producto2, "Pera", "$15.00"),
@@ -37,9 +34,8 @@ class StoreFragment : Fragment() {
             Product(R.drawable.producto3, "Zanahoria", "$35.00"),
             Product(R.drawable.producto3, "Zanahoria", "$35.00"),
             Product(R.drawable.producto3, "Zanahoria", "$35.00")
-        )
+                                )
 
-        // Configurar el GridView y el adapter
         val gridView = view.findViewById<GridView>(R.id.gridView)
         val adapter = ProductsAdapter(requireContext(), productList, this)
         gridView.adapter = adapter
@@ -49,6 +45,7 @@ class StoreFragment : Fragment() {
 
     fun onItemClick(product: Product) {
         add.start()
-        Toast.makeText(context, "Clic en: ${product.name}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Añadido al carrito: ${product.name}", Toast.LENGTH_SHORT).show()
+        cartViewModel.addProduct(product) // Agregar producto al carrito
     }
 }

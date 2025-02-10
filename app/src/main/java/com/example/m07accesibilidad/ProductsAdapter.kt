@@ -57,9 +57,4 @@ class ProductsAdapter(
         val productNameTextView: TextView = view.findViewById(R.id.productNameTextView)
         val productPriceTextView: TextView = view.findViewById(R.id.productPriceTextView)
     }
-
-    // Interfaz para manejar el clic
-    interface OnItemClickListener {
-        fun onItemClick(product: Product)
-    }
 }

@@ -18,8 +18,21 @@
         android:background="@color/gray"
         android:layout_marginTop="40dp" />
 
-    <!-- Aquí puedes añadir más elementos para mostrar los productos en el carrito -->
+    <ScrollView
+        android:id="@+id/scrollViewCart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/titleTextView"
+        android:layout_above="@id/btnPay"
+        android:layout_marginBottom="16dp">
 
+        <LinearLayout
+            android:id="@+id/productContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp" />
+    </ScrollView>
     <Button
         android:id="@+id/btnPay"
         android:layout_width="match_parent"
